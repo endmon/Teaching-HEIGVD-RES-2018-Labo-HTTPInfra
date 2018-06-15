@@ -3,8 +3,14 @@ set -e
 
 # Add setup for RES lab Infre
 echo "Setup for the RES lab Infra..."
-echo "Static App URL: $STATIC_APP"
-echo "Dynamic App URL: $DYNAMIC_APP"
+echo "Static App URL: $STATIC_APP1"
+echo "Static App URL: $STATIC_APP2"
+echo "Static App URL: $STATIC_APP3"
+
+echo "Dynamic App URL: $DYNAMIC_APP1"
+echo "Dynamic App URL: $DYNAMIC_APP2"
+echo "Dynamic App URL: $DYNAMIC_APP3"
+
 php /var/apache2/templates/config-template.php > /etc/apache2/sites-available/001-reverse-proxy.conf
 
 
