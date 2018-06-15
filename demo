@@ -1,0 +1,16 @@
+#!/bin/bash
+# Script for labo HTTP-infra
+
+# The docker images are already build and we ran them
+
+docker run -d res/apache_php
+docker run -d res/apache_php
+docker run -d res/apache_php
+docker run -d res/express
+docker run -d res/express
+docker run -d res/express
+
+docker run -d -e STATIC_APP1=172.17.0.2:80 -e STATIC_APP2=172.17.0.3:80 -e STATIC_APP3=172.17.0.4:80 \
+-e DYNAMIC_APP1=172.17.0.5:3000 -e DYNAMIC_APP2=172.17.0.6:3000 -e DYNAMIC_APP3=172.17.0.7:3000 --name apache-reverse-proxy -p 8080:80 res/apache-reverse-proxy
+
+docker run -it -d --name portainer -v /var/run/docker.sock:/var/run/docker.sock -p 9000:9000 portainer/portainer
